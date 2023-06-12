@@ -1,0 +1,17 @@
+# just for test
+[mainline]
+name=mainline
+baseurl=https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-22.09-V1-riscv64/repo/22.09/mainline/
+enabled=1
+gpgcheck=0
+# just for test
+[epol]
+name=epol
+baseurl=https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-22.09-V1-riscv64/repo/22.09/epol/
+enabled=1
+gpgcheck=0
+[extra]
+name=extra
+baseurl=https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-22.09-V1-riscv64/repo/extra/
+enabled=1
+gpgcheck=0

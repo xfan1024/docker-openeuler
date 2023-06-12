@@ -1,0 +1,16 @@
+#!/bin/bash
+
+basefile() {
+    [ -z "$1" ] && echo "argument error" >&2 && return 1
+    [ -d "image/basefile/$1" ] && echo "$1" || echo "generic"
+}
+
+rpmarch() {
+    [ -z "$1" ] && echo "argument error" >&2 && return 1
+    case "$1" in
+        arm64) echo "aarch64" ;;
+        *) echo "$1" ;;
+    esac
+}
+
+"$@"

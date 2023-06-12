@@ -1,0 +1,14 @@
+FROM --platform=$BUILDPLATFORM openeuler/openeuler:22.03 as build
+ARG BASEFILE
+COPY basefile/$BASEFILE /target
+ARG RPMARCH
+ARG DELETEREPO
+RUN dnf --setopt=install_weak_deps=False --releasever 22.03LTS --forcearch $RPMARCH --installroot /target \
+    install -y coreutils rpm dnf yum bash findutils procps tar && \
+    rm /target/etc/yum.repos.d/$DELETEREPO && dnf clean all --installroot /target && \
+    rm -rf /target/var/cache/yum && \
+    rm -rf /target/var/log/* && \
+    rm /target/var/lib/dnf/history.sqlite-*
+FROM scratch
+COPY --from=build /target /
+CMD /bin/bash
